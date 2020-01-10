@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Insert title here</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <td>
+            编号
+        </td>
+        <td>
+            姓名
+        </td>
+        <td>
+            性别
+        </td>
+        <td>
+            操作
+        </td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(liststu)}">
+        <td colspan="4" align="center">暂无数据</td>
+    </tr>
+    <tr th:each="stu,st:${liststu}">
+        <td th:text="${st.count}"></td>
+        <td>[[${stu.stuName}]]</td>
+        <td th:text="${stu.sex eq '1'} ? '男':'女'"></td>
+        <td>
+            <span th:text="|您是${stu.stuName},性别是${stu.sex}|"></span>
+            <a href="">修改</a>|
+            <a href="删除">修改</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
