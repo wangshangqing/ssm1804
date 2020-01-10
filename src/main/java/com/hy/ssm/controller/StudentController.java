@@ -51,6 +51,7 @@ public class StudentController {
             @ApiResponse(code = 500,message = "查询失败！")
     })
     public LayUiData queryAll(@ApiParam(required = true,name = "page",value = "当前第几页") @RequestParam Integer page, @ApiParam(required = true,name = "limit",value = "一页几条")@RequestParam Integer limit,@ApiParam(required = false,name = "student",value = "根据学生的基本信息进行模糊查询") Student student){
+        System.out.println("-----");
         return studentService.queryAll(page,limit,student);
     }
 
